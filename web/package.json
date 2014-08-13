@@ -1,0 +1,12 @@
+{
+  "name": "adfs-saml",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./server.js"
+  },
+  "dependencies": {
+    "wstrust-client": "*",
+    "xml2js":"*"
+  }
+}
