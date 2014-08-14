@@ -1,24 +1,79 @@
 <s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
   <s:Header>
-    <a:Action s:mustUnderstand="1">http://www.w3.org/2005/08/addressing/soap/fault</a:Action>
+    <a:Action s:mustUnderstand="1">http://docs.oasis-open.org/ws-sx/ws-trust/200512/RSTRC/IssueFinal</a:Action>
     <o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
       <u:Timestamp u:Id="_0">
-        <u:Created>2014-08-13T20:52:23.795Z</u:Created>
-        <u:Expires>2014-08-13T20:57:23.795Z</u:Expires>
+        <u:Created>2014-08-14T12:18:34.951Z</u:Created>
+        <u:Expires>2014-08-14T12:23:34.951Z</u:Expires>
       </u:Timestamp>
     </o:Security>
   </s:Header>
   <s:Body>
-    <s:Fault>
-      <s:Code>
-        <s:Value>s:Sender</s:Value>
-        <s:Subcode>
-          <s:Value xmlns:a="http://docs.oasis-open.org/ws-sx/ws-trust/200512">a:InvalidScope</s:Value>
-        </s:Subcode>
-      </s:Code>
-      <s:Reason>
-        <s:Text xml:lang="en-US">ID3082: The request scope is not valid or is unsupported.</s:Text>
-      </s:Reason>
-    </s:Fault>
+    <trust:RequestSecurityTokenResponseCollection xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512">
+      <trust:RequestSecurityTokenResponse>
+        <trust:Lifetime>
+          <wsu:Created xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-08-14T12:18:34.949Z</wsu:Created>
+          <wsu:Expires xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-08-14T13:18:34.949Z</wsu:Expires>
+        </trust:Lifetime>
+        <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+          <wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing">
+            <wsa:Address>https://contoso.com</wsa:Address>
+          </wsa:EndpointReference>
+        </wsp:AppliesTo>
+        <trust:RequestedSecurityToken>
+          <Assertion ID="_c2dc66a7-e443-4404-a8f4-69a3aaebde59" IssueInstant="2014-08-14T12:18:34.951Z" Version="2.0" xmlns="urn:oasis:names:tc:SAML:2.0:assertion">
+            <Issuer>http://VAGRANT-DC.contoso.com/adfs/services/trust</Issuer>
+            <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+              <ds:SignedInfo>
+                <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                <ds:SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"/>
+                <ds:Reference URI="#_c2dc66a7-e443-4404-a8f4-69a3aaebde59">
+                  <ds:Transforms>
+                    <ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+                    <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/>
+                  </ds:Transforms>
+                  <ds:DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"/>
+                  <ds:DigestValue>sFb6gma3uPohDD33VsypBiDwjegs2eGmkCQuOo2FjKY=</ds:DigestValue>
+                </ds:Reference>
+              </ds:SignedInfo>
+              <ds:SignatureValue>kUeFP/cROXTF2zkrXnrMkG/LaYjXrZhcNxfrirnZH/sovC82Rit11x7UTUgz2tK1ZYeBXHyjEyGi0BPk/6Rf3ZOc3DJ+cdBJeibnOaP3q7VcX3dP1EcPHsHbMvuyaSAmAfzoHVR4IRmjRbceTqYuee2d4kJJrXsWxanAoC67uTHVMk/XdVYreJgzdvWGn7mJWHjzHIKxPQo2CYTq0GkN0vychdvucr4ye7WReH+GFbNfDUPJv/3BSG/5Z2nNT9QCF0sk/ozx2lLuGuoF+h9MHDXm6Ht5KjrLBLls9Zu5CImPtuNjgOMern/+Y4I95b7EovbOr60qHJy40KMPMqrwoA==</ds:SignatureValue>
+              <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
+                <ds:X509Data>
+                  <ds:X509Certificate>MIIC6DCCAdCgAwIBAgIQXJRiQ6Dlf7RGYhh8vaCwdTANBgkqhkiG9w0BAQsFADAwMS4wLAYDVQQDEyVBREZTIFNpZ25pbmcgLSBWQUdSQU5ULURDLmNvbnRvc28uY29tMB4XDTE0MDgxMzEwMTAyOFoXDTE1MDgxMzEwMTAyOFowMDEuMCwGA1UEAxMlQURGUyBTaWduaW5nIC0gVkFHUkFOVC1EQy5jb250b3NvLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ1PLicM207zW0jZhSuCBROxOQ3S26TPdpF7Tu1Ub7ziE7GVK6nloaAGn4KRmTpMPPomAaPejBKGo8XJJw++SRE2fw+cU2H5i/SeltGziqiTHJDp7a2HeWZnB9/QQoi4cbEAhWyX8CH49JsxLEQTFnYWvEesoYMFFgnIjhRD8E7NmYpNnt91x+cHZpbfN3QewrvkM7UpdeOowT6jlaYg1FDMDPEyoVlZHLE5cSs3Nsp0LW9/vwZgjAjxb1MomJJYTzsGgv64F1kHq2/g21OJsPaJ6/eIGIKF+9ItUH8aqqVDZXAqQwWjYZH+YNQOJNQmP7Jqr9EXRbZ6yKY1a80fqFECAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAkar1hIQVj9B/oKm21lpFSXRzb4PHpyWJRoYkFGUrXbx36GczXavvmy/ZsUEeGnYuRTOeEWUZi1+hOsZ+RWfoy2QIuFBV45fzHOXpXtLENHO4Hdv+JGnkU1UGsKWB97MSZW2acgXl1XTOZzka2fcTk3wHo7tBD60ifsJGEfsbgEG4UxSJENS0iVpHg3132K8EXnh7B2YrVvWM8IBOx/3pu+KuPcdPeO0xEm5oos+Vy7jC0kT9VxjdXPHmFlFqFWnx7An1kuC9pkVqFeNYtSQ4Wnah64OQKgNDv84UnoWrS1WKJhnD/9XLTgHYWf8WsnOjSh3r+MiyCy9x3RQWFYKwNA==</ds:X509Certificate>
+                </ds:X509Data>
+              </KeyInfo>
+            </ds:Signature>
+            <Subject>
+              <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+                <SubjectConfirmationData NotOnOrAfter="2014-08-14T12:23:34.951Z"/>
+              </SubjectConfirmation>
+            </Subject>
+            <Conditions NotBefore="2014-08-14T12:18:34.949Z" NotOnOrAfter="2014-08-14T13:18:34.949Z">
+              <AudienceRestriction>
+                <Audience>https://contoso.com</Audience>
+              </AudienceRestriction>
+            </Conditions>
+            <AuthnStatement AuthnInstant="2014-08-14T12:18:34.919Z">
+              <AuthnContext>
+                <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:Password</AuthnContextClassRef>
+              </AuthnContext>
+            </AuthnStatement>
+          </Assertion>
+        </trust:RequestedSecurityToken>
+        <trust:RequestedAttachedReference>
+          <SecurityTokenReference b:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:b="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd">
+            <KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_c2dc66a7-e443-4404-a8f4-69a3aaebde59</KeyIdentifier>
+          </SecurityTokenReference>
+        </trust:RequestedAttachedReference>
+        <trust:RequestedUnattachedReference>
+          <SecurityTokenReference b:TokenType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0" xmlns="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:b="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd">
+            <KeyIdentifier ValueType="http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLID">_c2dc66a7-e443-4404-a8f4-69a3aaebde59</KeyIdentifier>
+          </SecurityTokenReference>
+        </trust:RequestedUnattachedReference>
+        <trust:TokenType>urn:oasis:names:tc:SAML:2.0:assertion</trust:TokenType>
+        <trust:RequestType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue</trust:RequestType>
+        <trust:KeyType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</trust:KeyType>
+      </trust:RequestSecurityTokenResponse>
+    </trust:RequestSecurityTokenResponseCollection>
   </s:Body>
 </s:Envelope>
