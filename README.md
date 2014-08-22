@@ -1,16 +1,20 @@
 #adfs-saml
 
+a test project to play around with ADFS and SAML
+
 ##Ubuntu Setup
 
+``` bash
 # add apt-get-repository
 sudo apt-get install -y software-properties-common python-software-properties
 # add latest nodejs build repo
+
 sudo add-apt-repository ppa:chris-lea/node.js
 sudo apt-get update
 sud apt-get install -y make curl git unzip
 sudo apt-get install -y nodejs
 sudo apt-get install xml-twig-tools
-
+```
 
 # OpenSSL convert DER to pem
 
