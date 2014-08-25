@@ -14,7 +14,7 @@
         <trust:RequestSecurityToken xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512">
             <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
                 <a:EndpointReference>
-                    <a:Address>https://contoso.com</a:Address>
+                    <a:Address>https://dubdev.com</a:Address>
                 </a:EndpointReference>
             </wsp:AppliesTo>
             <trust:KeyType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</trust:KeyType>
