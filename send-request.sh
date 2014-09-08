@@ -5,7 +5,7 @@ curl https://dubdevdc.dubdev.com/adfs/services/trust/13/usernamemixed \
 --data @xml/request-token.xml \
 -H "Content-Type:application/soap+xml"  \
 --verbose \
-| tee "xml/response-token.xml"
+| python -m json.tool
 
 exit
 

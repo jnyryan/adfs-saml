@@ -1,12 +1,32 @@
 {
   "name": "adfs-saml",
   "version": "0.0.1",
-  "private": true,
+  "description": "playing with saml and adfs",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./server.js"
   },
-  "dependencies": {
+  "dependencies":
+  {
+    "express": "3.x",
+    "console-ten":"*",
+    "saml20":"*",
     "wstrust-client": "*",
     "xml2js":"*"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jnyryan/adfs-saml"
+  },
+  "keywords": [
+    "adfs",
+    "saml",
+    "soap"
+  ],
+  "author": "john ryan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jnyryan/adfs-saml/issues"
+  },
+  "homepage": "https://github.com/jnyryan/adfs-saml"
 }
