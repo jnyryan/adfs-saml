@@ -28,3 +28,10 @@ openssl x509 -inform der -in ./ssl/vagrant-dc.cer -out ./ssl/vagrant-dc.pem
 sudo cp ./ssl/vagrant-dc.pem /etc/ssl/certs/vagrant-dc.pem
 sudo update-ca-certificates
 ```
+
+extract Keys from pfx file
+
+```
+openssl pkcs12 -in dubdevcaDUBDEV.COM.pfx -nocerts -out dubdevcaDUBDEV.COM.pfx.key
+openssl pkcs12 -in dubdevcaDUBDEV.COM.pfx -clcerts -nokeys -out cert.pem
+```
