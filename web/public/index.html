@@ -34,7 +34,7 @@
 
   <body>
 
-    <div class="container" ng-controller='LogInCtrl'>
+    <div class="container" ng-controller='LoginCtrl'>
 
       <div class="form-signin" role="form" >
         <h2 class="form-signin-heading">Please sign in</h2>
@@ -52,7 +52,7 @@
             <h3 class="panel-title">Profile Issuer</h3>
           </div>
           <div class="panel-body">
-            {{loginResponse.rstr.Profile.issuer}}
+            {{loginResponse.Profile.issuer}}
           </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
           <div class="panel-heading">
             <h3 class="panel-title">Profile Claims</h3>
           </div>
-          <div class="panel-body" ng-repeat="(key,val) in loginResponse.rstr.Profile.claims">
+          <div class="panel-body" ng-repeat="(key,val) in loginResponse.Profile.claims">
             {{key}} : {{val}}
           </div>
         </div>
@@ -74,8 +74,8 @@
             <h3 class="panel-title">Token / Assertion</h3>
           </div>
           <div class="panel-body">
-            {{loginResponse.rstr.issuer}}
-            {{loginResponse.rstr.Token}}
+            {{loginResponse.issuer}}
+            {{loginResponse.Token}}
           </div>
         </div>
     </div>
@@ -86,7 +86,7 @@
             <h3 class="panel-title">Error</h3>
           </div>
           <div class="panel-body">
-            {{loginResponse.rstr.Error}}
+            {{loginResponse.Error}}
           </div>
         </div>
     </div>

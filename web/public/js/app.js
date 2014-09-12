@@ -3,32 +3,32 @@
 
 var app = angular.module('samlApp',[]);
 
-app.controller("LogInCtrl", function($scope, $http) {
+app.controller("LoginCtrl", function($scope, $http, AdfsService) {
 
-    $scope.data = {
-      'username':'vagrant',
-      'password':'vagrant'
-    };
+  $scope.data = {
+    'username':'vagrant',
+    'password':'vagrant'
+  };
 
 
-    $scope.goLogin = function (username, password, tmp) {
-      console.log("Attempting Login: " + username + " " + password);
-      //console.dir($scope);
+  $scope.goLogin = function (username, password) {
+    console.log("Attempting Login: " + username + " " + password);
+    AdfsService.Login(username, password);
+  };
+});
 
-      $http.get('/login/' + username + '/' + password)
-        .then(function(res) {
-          $scope.loginResponse = {
-            rstr : res.data
-          }
-          console.dir(res.data);
-        });
-/*
-        $http.post('/login', {
-          'username':'vagrant',
-          'password':'vagrant'
-        })
-        .success(console.log("success"))
-        .error(console.log("sad face"));
-*/
-    };
-  });
+app.service("AdfsService", function($rootScope, $http){
+
+  this.Login = function(username, password){
+    console.log("doing a login");
+    $http.get('/login/' + username + '/' + password)
+      .then(function(res) {
+        $rootScope.loginResponse = res.data;
+        console.dir(res.data);
+      });
+
+  };
+
+  this.Logout = function(){console.log("doing a logout")};
+
+});
